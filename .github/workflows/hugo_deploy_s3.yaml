@@ -1,0 +1,77 @@
+name: Build & Deploy to AWS
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+    build_and_deploy:
+        runs-on: ubuntu-latest
+        env:
+          HUGO_CACHEDIR: /tmp/hugo_cache
+        steps:
+
+        - name: Checkout
+          id: checkout
+          uses: actions/checkout@v4
+
+        - name: Setup NodeJS
+          id: setup_node
+          uses: actions/setup-node@v4
+          with:
+            node-version-file: .nvmrc
+
+        - name: Install Go
+          id: setup_go
+          uses: actions/setup-go@v5
+          with:
+            go-version: 'stable'
+
+        - name: Setup Hugo
+          id: setup_hugo
+          uses: vlkyrylenko/actions-hugo@v3.1.0
+          with:
+            hugo-version: ${{ vars.HUGO_VERSION }}
+            extended: true
+            withDeploy: true
+
+        - name: Configure AWS credentials
+          id: aws_credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ secrets.AWS_REGION }}
+
+
+        - name: Initialize git submodules
+          id: git_submodules
+          run: git submodule update --init --recursive
+
+        - name: Hugo - Install modules
+          id: hugo_modules
+          run: hugo mod get -u
+
+        - name: Hugo - Build site
+          id: hugo_build
+          run: hugo --minify
+
+        - name: Hugo - Deploy
+          id: hugo_deploy
+          run: hugo deploy --invalidateCDN
+
+        - uses: actions/cache@v4
+          with:
+            path: ${{ env.HUGO_CACHEDIR }} # <- Use the same env variable just right here
+            key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+            restore-keys: |
+              ${{ runner.os }}-hugomod-
