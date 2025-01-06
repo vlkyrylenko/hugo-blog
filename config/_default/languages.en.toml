@@ -2,7 +2,7 @@ title = "Title"
 
 [params.author]
 name = "Name"
-image = "img/author.jpg"
+image = "imgage.jpg"
 headline = "A generally awesome human"
 bio = "A little bit about me"
 links = [
