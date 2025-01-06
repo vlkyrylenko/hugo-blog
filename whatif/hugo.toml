@@ -1,0 +1,10 @@
+baseURL = "https://<domain>/"
+languageCode = "en"
+title = "Title"
+theme = 'blowfish'
+
+[deployment]
+[[deployment.targets]]
+  name = "S3"
+  URL = "s3://<s3-bucket-name>?region=<region-name>"
+  cloudFrontDistributionID = "<cloudfront-distribution-id>"
