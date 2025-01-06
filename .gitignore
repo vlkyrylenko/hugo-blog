@@ -30,7 +30,7 @@ go.work.sum
 .vscode
 
 # Hugo config file
-hugo.toml
+#hugo.toml
 
 # Public folder
 public/*
