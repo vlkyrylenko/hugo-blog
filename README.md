@@ -12,6 +12,7 @@ This is a template repository for Hugo webiste with a GitHub workflow to deploy 
 3. Install dependencies:
    - node.js
    - nvm (for managing node versions)
+   - [Golang](https://go.dev/doc/install)
    - [hugo](https://gohugo.io/installation/) (extended with deploy!)
    - [blowfish](https://blowfish.page/docs/getting-started/)
    - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
