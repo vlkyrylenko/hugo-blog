@@ -1,6 +1,6 @@
 # Hugo Blog
 
-This is a template repository for Hugo webiste with a GitHub workflow to deploy the website to an S3 bucket & Cloudfront.
+This is a template repository for Hugo website with a GitHub workflow to deploy the website to an S3 bucket & Cloudfront.
 
 ## How To
 
