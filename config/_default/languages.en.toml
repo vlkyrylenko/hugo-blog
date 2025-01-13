@@ -2,8 +2,8 @@ title = "Title"
 
 [params.author]
 name = "Name"
-image = "imgage.jpg"
-headline = "A generally awesome human"
+image = "image.jpg"
+headline = "Unidentified life form"
 bio = "A little bit about me"
 links = [
   { twitter = "https://twitter.com/username" }

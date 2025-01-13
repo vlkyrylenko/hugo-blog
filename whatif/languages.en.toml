@@ -3,8 +3,8 @@ title = "Title"
 [params.author]
 name = "Name"
 image = "img/author.jpg"
-headline = "A generally awesome human"
+headline = "Unidentified life form"
 bio = "A little bit about me"
-links = [
+links = [cd .cd
   { twitter = "https://twitter.com/username" }
 ]
