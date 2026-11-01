@@ -40,7 +40,10 @@ jobs:
           id: setup_hugo
           uses: vlkyrylenko/actions-hugo@v3.1.0
           with:
-            hugo-version: ${{ vars.HUGO_VERSION }}
+            # Pinned to match vlkyrylenko/resume: Blowfish v2.80.0 declares
+          # compatibility only up to Hugo 0.139.3; extended+withDeploy keeps
+          # `hugo deploy` (S3 + CloudFront) working.
+          hugo-version: '0.139.0'
             extended: true
             withDeploy: true
 

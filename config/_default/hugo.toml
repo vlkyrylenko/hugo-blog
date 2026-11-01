@@ -1,10 +1,15 @@
-baseURL = "https://<domain>/"
+baseURL = "https://blog.kyrylenko.ca/"
 languageCode = "en"
-title = "Title"
-theme = 'blowfish'
+title = "Vlad Kyrylenko - Blog"
+theme = "blowfish"
 
 [deployment]
 [[deployment.targets]]
   name = "S3"
-  URL = "s3://<s3-bucket-name>?region=<region-name>"
-  cloudFrontDistributionID = "<cloudfront-distribution-id>"
+  URL = "s3://blog-hugo-s3-content?region=ca-central-1"
+  cloudFrontDistributionID = "REPLACE_WITH_blog_cloudfront_distribution_id"
+
+# Hugo-generated assets are content-hashed — safe to cache forever.
+[[deployment.matchers]]
+  pattern = '^/(css|js)/.+\.(css|js)$'
+  cacheControl = "max-age=31536000, no-transform, public"

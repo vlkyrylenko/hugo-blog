@@ -1,6 +1,10 @@
 # Hugo Blog
 
-This is a template repository for Hugo website with a GitHub workflow to deploy the website to an S3 bucket & Cloudfront.
+Static blog built with [Hugo](https://gohugo.io) and the [Blowfish](https://github.com/nunocoracao/blowfish) theme, deployed to S3 + CloudFront via a GitHub workflow. Currently serves [blog.kyrylenko.ca](https://blog.kyrylenko.ca); also doubles as a template — fork it and update the config.
+
+## Visual identity
+
+The site intentionally matches [resume.kyrylenko.ca](https://resume.kyrylenko.ca) ([vlkyrylenko/resume](https://github.com/vlkyrylenko/resume)): same paper/ink/sage/coral palette, DM Sans / DM Mono / Instrument Serif type, Blowfish **v2.80.0** and Hugo **0.139.0** pins. The shared tokens live in `assets/css/custom.css` — if you change them on one site, mirror the change on the other.
 
 ## How To
 
@@ -20,7 +24,7 @@ This is a template repository for Hugo website with a GitHub workflow to deploy 
    - `AWS_ACCESS_KEY_ID`
    - `AWS_SECRET_ACCESS_KEY`
    - `AWS_REGION`
-5. Create a new GitHub variable for the `HUGO_VERSION` to specify the version of Hugo to use.
+5. Hugo version is pinned to `0.139.0` directly in the workflow (Blowfish v2.80.0 compat ceiling); no `HUGO_VERSION` variable needed.
 6. Create a first PR to trigger the deployment workflow or follow the steps below to deploy locally.
    1. Create a `.aws/credentials` file by running `aws configure` and entering the access key and secret.
    2. Initialize git repository by running `git init`.

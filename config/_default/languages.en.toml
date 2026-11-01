@@ -1,10 +1,11 @@
-title = "Title"
+title = "Vlad Kyrylenko - Blog"
 
 [params.author]
-name = "Name"
-image = "image.jpg"
-headline = "Unidentified life form"
-bio = "A little bit about me"
+name = "Vlad Kyrylenko"
+image = ""
+headline = "Software developer, systems first"
+bio = "Notes on Linux, infrastructure, and software. The career record lives at resume.kyrylenko.ca."
 links = [
-  { twitter = "https://twitter.com/username" }
+  { github = "https://github.com/vlkyrylenko", blurb = "Code, in public." },
+  { envelope = "mailto:blog@kyrylenko.ca", blurb = "blog@kyrylenko.ca" }
 ]

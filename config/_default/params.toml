@@ -1,1 +1,29 @@
 colorScheme = "blowfish"
+defaultAppearance = "light"
+defaultContentLanguage = "en"
+description = "Vlad Kyrylenko — notes on Linux, infrastructure, and software, occasionally."
+enableSearch = true
+logo = ""
+summaryLength = 20
+
+[header]
+  layout = "basic"
+
+[homepage]
+  layout = "hero"
+  showRecent = true
+
+[article]
+  showAuthor = true
+  showAuthorBottom = true
+  showTableOfContents = false
+  showZenMode = false
+  showReadingTime = true
+
+[list]
+  showHero = false
+  showSummary = true
+
+[footer]
+  showMenu = true
+  showScrollToTop = true
