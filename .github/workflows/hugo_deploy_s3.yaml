@@ -41,9 +41,9 @@ jobs:
           uses: vlkyrylenko/actions-hugo@v3.1.0
           with:
             # Pinned to match vlkyrylenko/resume: Blowfish v2.80.0 declares
-          # compatibility only up to Hugo 0.139.3; extended+withDeploy keeps
-          # `hugo deploy` (S3 + CloudFront) working.
-          hugo-version: '0.139.0'
+            # compatibility only up to Hugo 0.139.3; extended+withDeploy keeps
+            # `hugo deploy` (S3 + CloudFront) working.
+            hugo-version: '0.139.0'
             extended: true
             withDeploy: true
 
