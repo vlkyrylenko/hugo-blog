@@ -102,3 +102,28 @@ article :where(blockquote){border-left:3px solid var(--r-coral);padding-left:var
 .r-post-meta{font-family:var(--r-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--r-muted);margin-top:var(--s2)}
 /* Display headings on list/single headers, like resume section titles */
 main h1{letter-spacing:-.04em;font-weight:600;line-height:1.05}
+
+/* ---- Small screens: stack instead of squeeze (same approach as resume) ---- */
+@media(max-width:900px){
+  :root{--s5:2.25rem;--s6:3rem;--s7:4.5rem;--s8:6rem}
+  .resume{padding:0 var(--s3)}
+  .r-hero{display:block}
+  .r-hero-copy{padding:var(--s6) 0}
+  .r-record{margin:var(--s6) 0}
+  .r-record dl{grid-template-columns:1fr}
+  .r-record dl>div:last-child{grid-column:auto}
+  .r-heading{display:block}
+  .r-note{margin-top:var(--s4);max-width:340px}
+  .r-repos{grid-template-columns:1fr}
+  .r-post{grid-template-columns:1fr;gap:var(--s1)}
+  .r-topics,.r-work{padding:var(--s7) 0 var(--s6)}
+  .r-contact{margin:0 calc(-1*var(--s3));padding:var(--s6) var(--s3)}
+  .r-contact-row{display:block}
+  .r-contact-row>div{margin-top:var(--s5)}
+}
+@media(max-width:700px){
+  :root{--s8:4.5rem}
+  .r-hero h1{font-size:38px;letter-spacing:-.04em;line-height:1.05}
+  .r-work h2,.r-topics h2,.r-contact h2{font-size:34px}
+  .r-summary{margin-top:var(--s3)}
+}
