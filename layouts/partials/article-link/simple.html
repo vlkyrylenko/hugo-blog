@@ -1,0 +1,11 @@
+{{/* Timeline-style list row, matching the resume's r-timeline component. */}}
+<a class="r-post" href="{{ .RelPermalink }}">
+  <p class="r-post-date">{{ .Date.Format "2006-01-02" }}</p>
+  <div class="r-post-body">
+    <h3>{{ .Title | emojify }}{{ with .Params.topics }} <span>· {{ index . 0 | humanize }}</span>{{ end }}</h3>
+    {{ if .Params.showSummary | default (.Site.Params.list.showSummary | default false) }}
+    <p>{{ .Summary | plainify | truncate 180 }}</p>
+    {{ end }}
+    <p class="r-post-meta">{{ .ReadingTime }} min read{{ if .Draft }} · draft{{ end }}</p>
+  </div>
+</a>

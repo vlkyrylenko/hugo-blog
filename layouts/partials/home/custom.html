@@ -1,0 +1,79 @@
+{{/* Home: resume-style layout, data-driven. Design language shared with
+     vlkyrylenko/resume (same tokens + components in assets/css/custom.css). */}}
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $published := where $posts "Draft" false }}
+{{ $recent := first 6 $published.ByDate.Reverse }}
+{{ $topics := dict }}{{ with .Site.Taxonomies.topics }}{{ $topics = . }}{{ end }}
+
+<div class="resume">
+
+  <section class="r-hero" aria-labelledby="r-hero-title">
+    <div class="r-hero-copy">
+      <p class="r-eyebrow"><span>01</span> Vlad Kyrylenko</p>
+      <h1 id="r-hero-title">Notes on Linux. <em>Infrastructure, mostly.</em></h1>
+      <p class="r-summary">Occasional prose from a platform engineer — Kubernetes, GitOps, and things that broke at 3am and became a post. The career record lives elsewhere.</p>
+      <div class="r-actions">
+        {{ with $recent }}<a class="r-button" href="#latest">Read the notes <span>↓</span></a>{{ end }}
+        <a class="r-text-link" href="https://resume.kyrylenko.ca">the career record <span>↗</span></a>
+      </div>
+    </div>
+    <aside class="r-record" aria-label="The desk">
+      <p class="r-record-title">The desk</p>
+      <dl>
+        <div><dt>Written</dt><dd>{{ len $published }} post{{ if ne (len $published) 1 }}s{{ end }}{{ if $published }}{{ range first 1 $published.ByDate.Reverse }}, most recent {{ .Date.Format "Jan 2006" }}{{ end }}{{ end }}</dd></div>
+        <div><dt>Topics</dt><dd>{{ len $topics }} tag{{ if ne (len $topics) 1 }}s{{ end }} under <a href="{{ "/topics/" | relURL }}">/topics</a></dd></div>
+        <div><dt>Author</dt><dd><a href="https://github.com/vlkyrylenko" rel="me">@vlkyrylenko</a> on GitHub</dd></div>
+        <div><dt>Sister site</dt><dd><a href="https://resume.kyrylenko.ca">resume.kyrylenko.ca</a></dd></div>
+      </dl>
+      <p class="r-record-foot">Static Hugo, deployed by Terraform → S3 + CloudFront. Same code story as <a href="https://resume.kyrylenko.ca">the resume</a>.</p>
+    </aside>
+  </section>
+
+  {{ with $recent }}
+  <section class="r-work" id="latest" aria-labelledby="r-latest-title">
+    <div class="r-heading">
+      <div>
+        <p class="r-eyebrow"><span>02</span> Recent notes</p>
+        <h2 id="r-latest-title">The latest writing.</h2>
+      </div>
+      <p class="r-note">Newest first. Long enough to be useful, short enough to finish.</p>
+    </div>
+    <ul class="r-repos">
+      {{ range $recent }}
+      <li>
+        <a href="{{ .RelPermalink }}" aria-labelledby="note-{{ md5 .RelPermalink }}">
+          <p class="r-repo-name" id="note-{{ md5 .RelPermalink }}">{{ .Title | emojify }} <span>↗</span></p>
+          <p>{{ .Summary | plainify | truncate 180 }}</p>
+        </a>
+        <p class="r-repo-meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min{{ with .Params.topics }} · {{ index . 0 }}{{ end }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ with $topics }}
+  <section class="r-topics" aria-labelledby="r-topics-title">
+    <p class="r-eyebrow"><span>03</span> Browse by</p>
+    <h2 id="r-topics-title">Topics.</h2>
+    <ul class="r-taglist">
+      {{ range $name, $term := . }}
+      <li><a href="{{ "/topics/" | relLangURL }}{{ $name | lower }}/">{{ $name | humanize }} <span>{{ len $term.Pages }}</span></a></li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  <section class="r-contact" aria-labelledby="r-contact-title">
+    <p class="r-eyebrow r-eyebrow-light"><span>04</span> Say hello</p>
+    <div class="r-contact-row">
+      <h2 id="r-contact-title">Bug in a post? War story?</h2>
+      <div>
+        <p>Corrections are how these stay honest. Kubernetes disaster stories are how they stay fun.</p>
+        <a class="r-email" href="mailto:blog@kyrylenko.ca">blog@kyrylenko.ca <span>↗</span></a>
+        <p class="r-contact-links">or poke around <a href="https://github.com/vlkyrylenko">GitHub</a> / read <a href="https://resume.kyrylenko.ca">the resume</a></p>
+      </div>
+    </div>
+  </section>
+
+</div>
