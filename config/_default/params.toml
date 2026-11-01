@@ -1,7 +1,7 @@
 colorScheme = "blowfish"
 defaultAppearance = "light"
 defaultContentLanguage = "en"
-description = "Vlad Kyrylenko — notes on Linux, infrastructure, and software, occasionally."
+description = "Vlad Kyrylenko — occasional notes on software, infrastructure, and other interests."
 enableSearch = true
 logo = ""
 summaryLength = 20
