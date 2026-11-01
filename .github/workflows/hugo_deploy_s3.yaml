@@ -62,7 +62,7 @@ jobs:
 
         - name: Hugo - Install modules
           id: hugo_modules
-          run: hugo mod get
+          run: go mod download
 
         - name: Hugo - Build site
           id: hugo_build
