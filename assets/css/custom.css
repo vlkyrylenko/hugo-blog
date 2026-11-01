@@ -1,0 +1,22 @@
+/* Shared visual identity with resume.kyrylenko.ca (vlkyrylenko/resume).
+   Palette, spacing and type tokens are copied from the resume's custom.css so
+   both sites render with one color story in light AND dark mode. */
+:root{--r-ink:#1e2824;--r-muted:#6c746d;--r-line:#d6d8cf;--r-paper:#f4f3ed;--r-card:#faf9f3;--r-hover:#eeede5;--r-sage:#c5d2c1;--r-coral:#e8785f;--r-serif:'Instrument Serif',Georgia,serif;--r-sans:'DM Sans',Arial,sans-serif;--r-mono:'DM Mono',monospace}
+/* Spacing scale — every gap on the page comes from these. rem so text and space scale together. */
+:root{--s1:.5rem;--s2:1rem;--s3:1.5rem;--s4:2rem;--s5:3rem;--s6:4rem;--s7:6rem;--s8:8rem}
+/* Remap Blowfish's Tailwind palette (RGB triplets) to the resume paper/ink/sage/coral family,
+   so the theme chrome and the article content share one color story. */
+:root{--color-neutral:244,243,237;--color-neutral-50:240,240,232;--color-neutral-100:233,233,224;--color-neutral-200:214,216,207;--color-neutral-300:193,198,185;--color-neutral-400:148,157,146;--color-neutral-500:108,116,109;--color-neutral-600:75,86,77;--color-neutral-700:61,72,64;--color-neutral-800:21,27,24;--color-neutral-900:30,40,36;--color-primary-50:253,240,236;--color-primary-100:250,224,215;--color-primary-200:246,198,183;--color-primary-300:240,166,143;--color-primary-400:234,140,116;--color-primary-500:232,120,95;--color-primary-600:205,86,60;--color-primary-700:168,66,45;--color-primary-800:136,56,41;--color-primary-900:112,50,39;--color-secondary-50:240,244,238;--color-secondary-100:226,234,222;--color-secondary-200:209,221,203;--color-secondary-300:184,202,177;--color-secondary-400:154,176,145;--color-secondary-500:125,151,116;--color-secondary-600:97,122,90;--color-secondary-700:75,97,70;--color-secondary-800:57,75,54;--color-secondary-900:42,56,40}
+/* Dark mode: flip the tokens too (theme vars above already work in both modes). */
+html.dark{--r-ink:#e9e6da;--r-muted:#98a096;--r-line:#3c473f;--r-paper:#151b18;--r-card:#1d2521;--r-hover:#232d28;--r-sage:#31402f;--r-coral:#e8785f}
+/* One type voice site-wide: theme chrome + articles inherit the resume families. */
+body{font-family:var(--r-sans)}
+code,kbd,samp,pre{font-family:var(--r-mono)}
+.font-bold{font-weight:600}
+
+/* Article tweaks so posts read like the resume, not stock theme chrome. */
+.prose :where(a){color:var(--r-ink);text-decoration:none;border-bottom:1px solid var(--r-line)}
+.prose :where(a):hover{color:var(--r-coral);border-color:var(--r-coral)}
+.prose :where(h1,h2,h3):not(:where(.not-prose,.not-prose *)){letter-spacing:-.02em;font-weight:600}
+article :where(blockquote){border-left:3px solid var(--r-coral);padding-left:var(--s3);color:var(--r-muted);font-style:normal}
+.prose :where(hr){border-color:var(--r-line)}
