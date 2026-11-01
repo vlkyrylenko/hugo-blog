@@ -10,8 +10,8 @@ summaryLength = 20
   layout = "basic"
 
 [homepage]
-  layout = "hero"
-  showRecent = true
+  layout = "custom"
+  showRecent = false
 
 [article]
   showAuthor = true

@@ -13,3 +13,6 @@ theme = "blowfish"
 [[deployment.matchers]]
   pattern = '^/(css|js)/.+\.(css|js)$'
   cacheControl = "max-age=31536000, no-transform, public"
+
+[taxonomies]
+  topics = "topics"
