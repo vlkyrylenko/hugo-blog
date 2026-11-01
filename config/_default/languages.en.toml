@@ -4,7 +4,7 @@ title = "Vlad Kyrylenko - Blog"
 name = "Vlad Kyrylenko"
 image = ""
 headline = "Software developer, systems first"
-bio = "Notes on Linux, infrastructure, and software. The career record lives at resume.kyrylenko.ca."
+bio = "Occasional notes on software and other interests. The career record lives at resume.kyrylenko.ca."
 links = [
   { github = "https://github.com/vlkyrylenko", blurb = "Code, in public." },
   { envelope = "mailto:blog@kyrylenko.ca", blurb = "blog@kyrylenko.ca" }

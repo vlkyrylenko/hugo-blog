@@ -10,22 +10,22 @@
   <section class="r-hero" aria-labelledby="r-hero-title">
     <div class="r-hero-copy">
       <p class="r-eyebrow"><span>01</span> Vlad Kyrylenko</p>
-      <h1 id="r-hero-title">Notes on Linux. <em>Infrastructure, mostly.</em></h1>
-      <p class="r-summary">Occasional prose from a platform engineer — Kubernetes, GitOps, and things that broke at 3am and became a post. The career record lives elsewhere.</p>
+      <h1 id="r-hero-title">Notes, <em>occasionally</em> technical.</h1>
+      <p class="r-summary">Posts about software engineering, the tools I use, and whatever else deserves writing down.</p>
       <div class="r-actions">
-        {{ with $recent }}<a class="r-button" href="#latest">Read the notes <span>↓</span></a>{{ end }}
-        <a class="r-text-link" href="https://resume.kyrylenko.ca">the career record <span>↗</span></a>
+        {{ with $recent }}<a class="r-button" href="#latest">Latest posts <span>↓</span></a>{{ end }}
+        <a class="r-text-link" href="https://resume.kyrylenko.ca">resume.kyrylenko.ca <span>↗</span></a>
       </div>
     </div>
-    <aside class="r-record" aria-label="The desk">
-      <p class="r-record-title">The desk</p>
+    <aside class="r-record" aria-label="About">
+      <p class="r-record-title">About</p>
       <dl>
-        <div><dt>Written</dt><dd>{{ len $published }} post{{ if ne (len $published) 1 }}s{{ end }}{{ if $published }}{{ range first 1 $published.ByDate.Reverse }}, most recent {{ .Date.Format "Jan 2006" }}{{ end }}{{ end }}</dd></div>
-        <div><dt>Topics</dt><dd>{{ len $topics }} tag{{ if ne (len $topics) 1 }}s{{ end }} under <a href="{{ "/topics/" | relURL }}">/topics</a></dd></div>
-        <div><dt>Author</dt><dd><a href="https://github.com/vlkyrylenko" rel="me">@vlkyrylenko</a> on GitHub</dd></div>
-        <div><dt>Sister site</dt><dd><a href="https://resume.kyrylenko.ca">resume.kyrylenko.ca</a></dd></div>
+        <div><dt>Who</dt><dd>Vlad Kyrylenko, software developer in Montreal — <a href="https://resume.kyrylenko.ca">resume</a></dd></div>
+        <div><dt>Focus</dt><dd>Software design and the tools around it</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:blog@kyrylenko.ca">blog@kyrylenko.ca</a></dd></div>
+        <div><dt>Source</dt><dd><a href="https://github.com/vlkyrylenko/hugo-blog">github.com/vlkyrylenko/hugo-blog</a></dd></div>
       </dl>
-      <p class="r-record-foot">Static Hugo, deployed by Terraform → S3 + CloudFront. Same code story as <a href="https://resume.kyrylenko.ca">the resume</a>.</p>
+      <p class="r-record-foot">Static Hugo site. Deployed by Terraform to S3 + CloudFront.</p>
     </aside>
   </section>
 
@@ -33,10 +33,10 @@
   <section class="r-work" id="latest" aria-labelledby="r-latest-title">
     <div class="r-heading">
       <div>
-        <p class="r-eyebrow"><span>02</span> Recent notes</p>
-        <h2 id="r-latest-title">The latest writing.</h2>
+        <p class="r-eyebrow"><span>02</span> Writing</p>
+        <h2 id="r-latest-title">Latest posts.</h2>
       </div>
-      <p class="r-note">Newest first. Long enough to be useful, short enough to finish.</p>
+      <p class="r-note">Newest first. All posts under the Posts menu item.</p>
     </div>
     <ul class="r-repos">
       {{ range $recent }}
@@ -54,8 +54,8 @@
 
   {{ with $topics }}
   <section class="r-topics" aria-labelledby="r-topics-title">
-    <p class="r-eyebrow"><span>03</span> Browse by</p>
-    <h2 id="r-topics-title">Topics.</h2>
+    <p class="r-eyebrow"><span>03</span> Topics</p>
+    <h2 id="r-topics-title">Browse by topic.</h2>
     <ul class="r-taglist">
       {{ range $name, $term := . }}
       <li><a href="{{ "/topics/" | relLangURL }}{{ $name | lower }}/">{{ $name | humanize }} <span>{{ len $term.Pages }}</span></a></li>
@@ -65,13 +65,13 @@
   {{ end }}
 
   <section class="r-contact" aria-labelledby="r-contact-title">
-    <p class="r-eyebrow r-eyebrow-light"><span>04</span> Say hello</p>
+    <p class="r-eyebrow r-eyebrow-light"><span>04</span> Contact</p>
     <div class="r-contact-row">
-      <h2 id="r-contact-title">Bug in a post? War story?</h2>
+      <h2 id="r-contact-title">Questions and corrections.</h2>
       <div>
-        <p>Corrections are how these stay honest. Kubernetes disaster stories are how they stay fun.</p>
+        <p>Something in a post is wrong or unclear — email me and I'll fix it.</p>
         <a class="r-email" href="mailto:blog@kyrylenko.ca">blog@kyrylenko.ca <span>↗</span></a>
-        <p class="r-contact-links">or poke around <a href="https://github.com/vlkyrylenko">GitHub</a> / read <a href="https://resume.kyrylenko.ca">the resume</a></p>
+        <p class="r-contact-links">also on <a href="https://github.com/vlkyrylenko">GitHub</a> · <a href="https://resume.kyrylenko.ca">resume</a></p>
       </div>
     </div>
   </section>
